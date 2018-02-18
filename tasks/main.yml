@@ -1,0 +1,38 @@
+---
+# tasks file for ansible-pritunl
+- apt_repository:
+    repo: deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse
+    state: present
+  become: yes
+
+- apt_repository:
+    repo: deb http://repo.pritunl.com/stable/apt xenial main
+    state: present
+  become: yes
+
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+  become: yes
+
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+  become: yes
+
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install pritunl
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - pritunl
+    - mongodb-org
+  notify: pritunl installed
+  become: yes

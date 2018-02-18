@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: Aliaksandr Kharkevich
+  description: >
+    Deploy pritunl: Enterprise Distributed OpenVPN and IPsec Server.
+  company:
+
+  issue_tracker_url: https://github.com/kharkevich/ansible-pritunl/issues
+
+  license: CC-BY 4.0
+
+  min_ansible_version: 2.4
+
+  # If this a Container Enabled role, provide the minimum Ansible Container version.
+  # min_ansible_container_version:
+
+  github_branch: master
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+
+  galaxy_tags:
+    - pritunl
+    - vpn
+
+dependencies: []
