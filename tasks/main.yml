@@ -31,6 +31,7 @@
   apt:
     name: "{{ item }}"
     update_cache: yes
+    allow_unauthenticated: yes
   with_items:
     - pritunl
     - mongodb-org
